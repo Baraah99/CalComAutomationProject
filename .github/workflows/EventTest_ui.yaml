@@ -63,6 +63,7 @@ jobs:
           distribution: 'temurin'
           java-version: '23'
 
+
       - name: Launch standalone grid - Firefox
         if: ${{ contains(github.event.inputs.grid_url, 'localhost') }}
         run: |
