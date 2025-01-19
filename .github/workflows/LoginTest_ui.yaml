@@ -1,4 +1,4 @@
-name: UI Testing For BookingTest
+name: UI Testing For LoginTest
 
 on:
   workflow_dispatch:
