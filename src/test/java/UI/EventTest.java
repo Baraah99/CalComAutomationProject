@@ -61,13 +61,6 @@ public class EventTest {
         assertTrue(isFailedMessageDisplayed, "An event type with this URL already exists ");
     }
 
-    @Test
-    public void testDeleteEvent() throws InterruptedException {
-        eventPage.deletingEvent();
-        boolean isDeleteMessageDisplayed = driver.findElement(eventPage.getToastDeleteMessage()).isDisplayed();
-
-        assertTrue(isDeleteMessageDisplayed, "Event Type Deleted Successfully");
-    }
 
     @Test
     public void testPreviewEvent() throws InterruptedException {
@@ -77,6 +70,18 @@ public class EventTest {
         eventPage.previewAction();
         assertTrue(true);
     }
+
+
+
+    @Test
+    public void testDeleteEvent() throws InterruptedException {
+        eventPage.deletingEvent();
+        boolean isDeleteMessageDisplayed = driver.findElement(eventPage.getToastDeleteMessage()).isDisplayed();
+
+        assertTrue(isDeleteMessageDisplayed, "Event Type Deleted Successfully");
+    }
+
+
 
     @AfterEach
     public void tearDown() throws InterruptedException {
