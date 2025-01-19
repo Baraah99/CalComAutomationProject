@@ -33,4 +33,4 @@ To run these tests, ensure the following prerequisites are met:
     ```bash
     git clone https://github.com/calcom/docker
 
-# CalComAutomationProject
+
