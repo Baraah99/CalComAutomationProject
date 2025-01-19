@@ -71,7 +71,9 @@ public class EventTest {
 
     @Test
     public void testPreviewEvent() throws InterruptedException {
-        driver.get("http://localhost:3000/baraah99/consultation");
+
+        driver.get("https://203b-2a06-c701-78d7-6300-80d2-9ce-d324-253d.ngrok-free.app/baraah99/consultation");
+
         eventPage.previewAction();
         assertTrue(true);
     }

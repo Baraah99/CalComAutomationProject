@@ -25,7 +25,7 @@ public class EventPage {
 
 
     // deleting event
-    private By eventTypeOptionsButton = By.cssSelector("button[data-testid='event-type-options-34']");
+    private By eventTypeOptionsButton = By.cssSelector("[data-testid^='event-type-options']");
     private By dropDownButton = By.cssSelector("div[data-radix-popper-content-wrapper]");
     private By deleteBtn = By.xpath("//button[contains(@class, 'hover:bg-error') and div[text()='Delete']]");
     private By confirmationDeleteButton =By.cssSelector("button[data-testid='dialog-confirmation']");
@@ -38,6 +38,8 @@ public class EventPage {
     private By headline = By.id("modal-headline");
     private By bookingbtn = By.cssSelector("[data-testid='back-to-bookings']");
     private By svgIcon = By.xpath("//button[@data-testid='incrementMonth']");
+    private By nameField = By.name("name");
+    private By emailField = By.id("email");
 
     // Constructor
     public EventPage( WebDriver driver) {
@@ -186,15 +188,33 @@ public class EventPage {
         backToBookingsLink.click();
     }
 
+    public void enterName(String text) {
+        // Use an explicit wait to wait for the 'quickChatInput' to be visible
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+        WebElement nameText = wait.until(ExpectedConditions.visibilityOfElementLocated(nameField));
+
+        // Clear and enter the text into the 'quickChatInput' field
+        nameText.clear();
+        nameText.sendKeys(text);
+    }
+    public void enterMail(String text) {
+        // Use an explicit wait to wait for the 'quickChatInput' to be visible
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+        WebElement emailText = wait.until(ExpectedConditions.visibilityOfElementLocated(emailField));
+
+        // Clear and enter the text into the 'quickChatInput' field
+        emailText.clear();
+        emailText.sendKeys(text);
+    }
+
     public void previewAction() throws InterruptedException {
         clickSvgRightButton();
         clickDayButton();
         clickTimeButton();
+        enterName("Rami Miari");
+        enterMail("my.first.drive.bm@gmail.com");
         clickConfirmBookButton();
-       // Wait for the headline element to be visible and check if it has the expected text
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40)); // Adjust timeout as necessary
-        WebElement headlineElement = wait.until(ExpectedConditions.visibilityOfElementLocated(headline));
-        backToBookingsLinkButton();
+        //backToBookingsLinkButton();
     }
 
     public boolean isLoggedInSuccessfully() {

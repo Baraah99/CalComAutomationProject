@@ -14,6 +14,7 @@ public class BookingPage {
 
     private By cancelBtn = By.cssSelector("a[data-testid='cancel']");
     private By bookingBtn = By.cssSelector("a[data-test-id='bookings']");
+    private By bookingLabel = By.cssSelector("[data-testid='bookings-test']");
     private By confirmCancel = By.cssSelector("button[data-testid='confirm_cancel']");
     private By backToBookingbtn = By.cssSelector("[data-testid='back-to-bookings']");
 
@@ -51,6 +52,15 @@ public class BookingPage {
         confirmDeleteBookinglClick.click();
     }
 
+    public void enterBooking() {
+        // Use an explicit wait to wait for the 'newEventButton' to be clickable
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+        WebElement bookingLabelClick = wait.until( ExpectedConditions.elementToBeClickable(bookingLabel));
+
+        // Click the 'newEventButton'
+        bookingLabelClick.click();
+    }
+
     public void backToBookingButton() {
         // Use an explicit wait to wait for the 'newEventButton' to be clickable
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
@@ -62,6 +72,7 @@ public class BookingPage {
 
 
     public void deleteBookingAction(){
+        enterBooking();
         clickCancelEventButton();
         confirmdeleteBooking();
         backToBookingButton();
