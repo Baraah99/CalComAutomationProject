@@ -43,8 +43,11 @@ jobs:
         run: |
           export BROWSER=chrome
           export GRID_URL=${{ github.event.inputs.grid_url }}
-
-          mvn test -Dtest=**/UI/BookingTest
+          
+          mvn test -Dtest=**/UI/LoginTest#testLogin
+          mvn test -Dtest=**/UI/EventTest#testExistingAddEvent
+          mvn test -Dtest=**/UI/EventTest#testDeleteEvent
+          mvn test -Dtest=**/UI/BookingTest#testDeleteBooking
 
           # Tear down grid if exists
           docker stop grid_container || true
@@ -73,7 +76,10 @@ jobs:
           export BROWSER=firefox
           export GRID_URL=${{ github.event.inputs.grid_url }}
 
-          mvn test -Dtest=**/UI/BookingTest
+          mvn test -Dtest=**/UI/LoginTest#testLogin
+          mvn test -Dtest=**/UI/EventTest#testExistingAddEvent
+          mvn test -Dtest=**/UI/EventTest#testDeleteEvent
+          mvn test -Dtest=**/UI/BookingTest#testDeleteBooking
 
           # Tear down grid if exists
           docker stop grid_container || true

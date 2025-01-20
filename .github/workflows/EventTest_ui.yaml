@@ -63,6 +63,11 @@ jobs:
           distribution: 'temurin'
           java-version: '23'
 
+      - name: Debug browser state
+        run: |
+          ls -lah /tmp # Check for artifacts
+          cat /tmp/logs/browser.log # Print logs
+
 
       - name: Launch standalone grid - Firefox
         if: ${{ contains(github.event.inputs.grid_url, 'localhost') }}

@@ -43,7 +43,6 @@ public class EventTest {
 
     @Test
     public void testAddEvent() throws InterruptedException {
-
         eventPage.addNewEvent("Quick Check-in","Brief meeting with the client","50");
         //Verify that the success toast message appears
         boolean isSuccessMessageDisplayed = driver.findElement(eventPage.getToastSuccessMessage()).isDisplayed();
