@@ -47,6 +47,8 @@ public class EventTest {
         //Verify that the success toast message appears
         boolean isSuccessMessageDisplayed = driver.findElement(eventPage.getToastSuccessMessage()).isDisplayed();
         // Assert that the success message is displayed, indicating the event was created
+
+        System.out.print(this.driver.getTitle() +  " add  event test") ;
         assertTrue(isSuccessMessageDisplayed, "Event creation was successful");
     }
 
@@ -65,7 +67,6 @@ public class EventTest {
     public void testPreviewEvent() throws InterruptedException {
 
         driver.get("https://203b-2a06-c701-78d7-6300-80d2-9ce-d324-253d.ngrok-free.app/baraah99/consultation");
-
         eventPage.previewAction();
         assertTrue(true);
     }
@@ -76,7 +77,7 @@ public class EventTest {
     public void testDeleteEvent() throws InterruptedException {
         eventPage.deletingEvent();
         boolean isDeleteMessageDisplayed = driver.findElement(eventPage.getToastDeleteMessage()).isDisplayed();
-
+        System.out.print(this.driver.getTitle() +  " delete event test") ;
         assertTrue(isDeleteMessageDisplayed, "Event Type Deleted Successfully");
     }
 

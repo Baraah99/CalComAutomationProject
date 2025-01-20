@@ -52,7 +52,7 @@ public class LoginTest {
         loginPage.loginAsInvalidUser("notvalidemail@gmail.com", "A102030405060708090a$");
         Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement errorMessage = wait.until( ExpectedConditions.presenceOfElementLocated( By.xpath("//h3[text()='Email or password is incorrect.']")));
-        assertTrue( errorMessage.isDisplayed(), "Error message not displayed" );
+        assertTrue( errorMessage.isDisplayed(), "Error message displayed" );
     }
 
 
