@@ -45,6 +45,7 @@ public class EventPage {
     public EventPage( WebDriver driver) {
         this.driver = driver;
         this.driver.manage().timeouts().implicitlyWait( Duration.ofSeconds(40));
+        System.out.print(this.driver.getTitle());
     }
 
     public void clickNewButton() {
