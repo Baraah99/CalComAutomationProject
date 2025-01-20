@@ -1,4 +1,4 @@
-# Cal.com Testing Repository - Automation Project
+# Cal.com Testing Repository Automation Project
 
 This repository contains automated tests for the Scheduling application running on `http://localhost:3000`.
 These tests ensure the functionality of key features such as adding, editing, and deleting events.
@@ -13,7 +13,26 @@ We focus on verifying the following:
 - **Delete Event**: Ensuring an event can be deleted correctly.
 - **Delete Booking**: Ensuring a Booking can be deleted correctly.
 
-The tests are designed to cover all common user actions, providing assurance that the application is stable and functional.
+## The testing strategy includes:
+
+- Functional Testing: To ensure all elements in the workflow perform their intended actions.
+
+- UI Testing: To confirm the usability and visibility of buttons, inputs, and switches.
+
+- Regression Testing: To verify that new changes do not affect the existing workflow negatively.
+
+## Test Plan Completion Criteria
+
+The completion criteria for the test cases include:
+
+- Coverage of all steps in the workflow for creating and saving a new event.
+
+- Tests for edge cases, such as saving an event that is already exist.
+
+- Validation of success messages or UI updates post-save.
+
+- Tests must pass 100% in the defined testing environment.
+
 
 ## Setup and Requirements
 
@@ -32,5 +51,3 @@ To run these tests, ensure the following prerequisites are met:
 2. Set the Database of cal.com using docker:
     ```bash
     git clone https://github.com/calcom/docker
-
-
