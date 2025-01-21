@@ -3,21 +3,16 @@ package API;
 
 
 import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
 import static io.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-public class EventApiTest {
+public class EventTypesApiTest {
 
     private final String BASE_URL = "https://api.cal.com/v1";
     private final String API_KEY = "cal_live_830b68e03cbed3e1e5432bec050b1c09";

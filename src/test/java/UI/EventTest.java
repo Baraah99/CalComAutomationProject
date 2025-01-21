@@ -28,7 +28,7 @@ public class EventTest {
     public void setUp() {
         driver = getDriver();
         driver.manage().window().maximize();
-        driver.get("https://203b-2a06-c701-78d7-6300-80d2-9ce-d324-253d.ngrok-free.app");
+        driver.get("https://1d29-2a06-c701-78d7-6300-c04d-7aef-7ccf-d020.ngrok-free.app");
         try {
             Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
             WebElement visitSiteButton = wait.until( ExpectedConditions.elementToBeClickable( By.xpath("//button[text()='Visit Site']")));
@@ -44,17 +44,12 @@ public class EventTest {
     @Test
     public void testAddEvent() throws InterruptedException {
         eventPage.addNewEvent("Quick Check-in","Brief meeting with the client","50");
-        //Verify that the success toast message appears
         boolean isSuccessMessageDisplayed = driver.findElement(eventPage.getToastSuccessMessage()).isDisplayed();
-        // Assert that the success message is displayed, indicating the event was created
-
-        System.out.print(this.driver.getTitle() +  " add  event test") ;
         assertTrue(isSuccessMessageDisplayed, "Event creation was successful");
     }
 
     @Test
     public void testExistingAddEvent() throws InterruptedException {
-
         eventPage.addExistEvent("Consultation","Consultation slots for clients","30");
         //Verify that the success toast message appears
         boolean isFailedMessageDisplayed = driver.findElement(eventPage.getToastFailedMessage()).isDisplayed();
@@ -65,22 +60,18 @@ public class EventTest {
 
     @Test
     public void testPreviewEvent() throws InterruptedException {
-
-        driver.get("https://203b-2a06-c701-78d7-6300-80d2-9ce-d324-253d.ngrok-free.app/baraah99/consultation");
+        driver.get("https://1d29-2a06-c701-78d7-6300-c04d-7aef-7ccf-d020.ngrok-free.app/baraah99/consultation");
         eventPage.previewAction();
         assertTrue(true);
     }
-
 
 
     @Test
     public void testDeleteEvent() throws InterruptedException {
         eventPage.deletingEvent();
         boolean isDeleteMessageDisplayed = driver.findElement(eventPage.getToastDeleteMessage()).isDisplayed();
-        System.out.print(this.driver.getTitle() +  " delete event test") ;
         assertTrue(isDeleteMessageDisplayed, "Event Type Deleted Successfully");
     }
-
 
 
     @AfterEach
